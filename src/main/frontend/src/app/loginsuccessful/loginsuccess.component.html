@@ -1,0 +1,36 @@
+ <h1>Login SuccessFul!!</h1>
+ 
+ <h2>You can now create a NOTE</h2>
+ 
+<form [formGroup]="noteForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+        <label for="notename">Name</label>
+        <input type="text" formControlName="notename" class="form-control"  />
+    </div>
+    <div class="form-group">
+        <label for="notedesc">Description</label>
+        <input type="notedesc" formControlName="notedesc" class="form-control"  />
+    </div>
+    <div class="form-group">
+        <button class="btn btn-primary">CREATE</button>
+    </div>
+</form>
+ 
+ <div>
+ <h1>{{this.message}}</h1>
+ </div>
+ 
+ 
+<div class="form-group">
+        <button class="btn btn-primary" (click)="onClick()">VIEW ALL NOTES CREATED BY YOU</button>
+    </div>
+    
+    <div *ngIf="noteList?.length>0">
+    <li *ngFor="let note of noteList">
+    <span class="badge"><h3>{{note.notename}}</h3></span>
+    </li>
+    	
+    </div>
+    <div *ngIf="noteList?.length==0">
+    <h2>No Notes created yet.</h2>
+    </div>
